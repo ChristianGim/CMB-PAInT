@@ -1,6 +1,16 @@
 # **C**osmic **M**icrowave **B**ackground **P**olarization **A**nisotropies **In**painting **T**ool (CMB-PAInT)
 
-# A 
+A Python package to inpaint Cosmic Microwave Background maps. It works for both intensity and polarization Q and U maps. 
+The code is based on Gaussian Constrained Realizations methodology (see [paper](https://arxiv.org/abs/2405.06820)).
+CMBPAInT can be used in different ways:
+
+* To compute pixel covariance matrix from an input angular power spectrum.
+* To compute Cholesky decomposition from an input covariance matrix.
+* To inpaint a CMB map using the precomputed Cholesky decomposition.
+
+The code contains two parallelization levels. The first one can be use in a cluster. It splits the work among different jobs that are submitted at the same time. Then, each of these jobs are parallelized using [mpi4py](https://mpi4py.readthedocs.io/en/stable/), the MPI standard for Python.
+
+If you have any comments or suggestions, please feel free to contact by email (gimenoc@ifca.unican.es) or by opening a discussion thread or issue.
 
 # Installation and dependencies
 
@@ -39,5 +49,7 @@ The dependencies are:
 * [psutil](https://psutil.readthedocs.io/en/latest/)
 * [h5py](https://www.h5py.org/): We tested for version 3.6.0 (in local) and 3.11.0 (in a cluster).
 * [mpi4py](https://mpi4py.readthedocs.io/en/stable/): We tested for version 3.1.3 (in local) and 3.1.5 (in a cluster).
+
+
 
   
