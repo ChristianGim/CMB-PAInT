@@ -18,33 +18,35 @@ This code needs an ini file containing the following parameters:
 
 
 
+This is an example:
+
 ``` 
 [MODEL_PARAMS]
-cls = /gpfs/projects/astro/gimeno/Inpainting_Test/codes/docs/Cls_PTEP_lmax_192.npy
+cls = /path/to/cls
 nside = 64
 lmax = 192
 pol = True
 tpol = True
 eb = False
 tb = False
-i_mask = /gpfs/projects/astro/gimeno/Inpainting_Test/codes/docs/dx12_v3_common_ps_mask_int_160a_0064_v2.fits
-p_mask = /gpfs/projects/astro/gimeno/Inpainting_Test/codes/docs/dx12_v3_common_ps_mask_pol_160a_0064_v2.fits
+i_mask = /path/to/intensity/mask
+p_mask = /path/to/polarization/mask
 Ext_Cov = None
 
 [SOFTWARE_PARAMS]
-sh_covariance_path = /gpfs/projects/astro/gimeno/Inpainting_Test/sh/run_covariance_2.sh
-sh_chol_path = /gpfs/projects/astro/gimeno/Inpainting_Test/sh/run_cholesky.sh
-sh_inp_path = None
-qos = overrun
+sh_covariance_path = /path/to/external/sh/file/for/covariance_matrix
+sh_chol_path = /path/to/external/sh/file/for/cholesky_decomposition
+sh_inp_path = /path/to/external/sh/file/for/inpainting
+qos = qos
 nodes_cov = 4
 nodes_inp = 5
-env = cudaaware_chrisenv_2
-ntasks_cov = 200
+env = your_conda_environment
+ntasks_cov = 32
 ntasks_inp = 5
-cpus_per_task = 2
-email = cga119@alumnos.unican.es
-constrain = cpu
-nj_cov = 16
+cpus_per_task = 5gpfs/projects/astro/gimeno/Inpainting_Test/Test_ns_64/Cov_Mat/
+email = your_email
+constrain = constrain
+nj_cov = 32
 nj_inp = 64
 local = False
 time_limit_cov = 00:20:00
@@ -53,11 +55,11 @@ time_limit_inp = 00:15:00
 dp = True
 noise_level = 1e-05
 chunks = 12288
-inp_in_path = /pscratch/sd/c/chris98/Proyectos/PyGCRecon/Nside_64/Input_Map
-inp_out_path = /pscratch/sd/c/chris98/Proyectos/PyGCRecon/Nside_64/Inpainting_Just_CMB
-out_matrix = /gpfs/projects/astro/gimeno/Inpainting_Test/Test_ns_64/Cov_Mat/
-name = None
-num_sims = 1200
+inp_in_path = /path/to/input/maps
+inp_out_path = /path/where/output/inpainted/simulations/are/stored
+out_matrix = /path/where/output/covariance/matrix/is/stored
+name = name_input_maps
+num_sims = 1000
 single = True
 no_z = False
 cons_uncons = True
@@ -66,8 +68,6 @@ zbar_path = None
 config_name = config_test.ini
 job_name = test_CMB_PAInT
 ```
-
-
 
 # Installation and dependencies
 
@@ -107,6 +107,24 @@ The dependencies are:
 * [h5py](https://www.h5py.org/): We tested for version 3.6.0 (in local) and 3.11.0 (in a cluster).
 * [mpi4py](https://mpi4py.readthedocs.io/en/stable/): We tested for version 3.1.3 (in local) and 3.1.5 (in a cluster).
 
+# Usage
+
+# Ouput examples (Jupyter Notebook)
+
+[View the Jupyter Notebook]()
 
 
+# License
+
+This project is licensed under the MIT License. Feel free to use and modify the code according to the terms specified in the license.
+
+# Citation
+
+
+
+# Contact
+
+If you have any questions please contact gimenoc@ifca.unican.es.
+
+We hope this code to be useful.
   
