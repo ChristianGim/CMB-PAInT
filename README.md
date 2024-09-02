@@ -123,7 +123,8 @@ job_name = test_CMB_PAInT
 
 # Output
 
-
+The inpainted maps are saved to a fits file. Additionally, covariance matrix will be stored, divided along N (the number of jobs) numpy files, and Cholesky decomposition in a hdf5 file. 
+Extra numpy files will be also saved containing the z variables (for the constrained part), and zbar variables (for the unconstrained seeds). 
 
 # Installation and dependencies
 
@@ -164,6 +165,42 @@ The dependencies are:
 * [mpi4py](https://mpi4py.readthedocs.io/en/stable/): We tested for version 3.1.3 (in local) and 3.1.5 (in a cluster).
 
 # Usage
+
+This code can be used in two independent ways: 
+
+* Via terminal.
+
+A brief description can be obtained trough:
+
+```
+usage: CMB_PAInT.py [-h] config level
+
+Given a fiducial model, this program generates inpainted realizations of an
+input Cosmic Microwave Background (CMB) map(s) based on Gaussian constrained
+realization methodology.
+
+positional arguments:
+  config      Path to the configuration file.
+  level       Select action: select 0 to compute the pixel covariance matrix,
+              select 1 for cholesky decomposition, or 2 for inpainting step.
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+Contact: gimenoc@ifca.unican.es
+```
+
+Usage examples:
+
+```
+```
+
+```
+```
+
+```
+```
+
 
 # Ouput examples (Jupyter Notebook)
 
