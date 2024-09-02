@@ -194,7 +194,7 @@ Usage examples:
 
 * Example for covariance matrix computation:
 
-```python3
+```
 python3 CMB_PAInT.py ./test/config_files/config_test.ini 0
 ```
 
