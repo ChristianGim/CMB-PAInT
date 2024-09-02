@@ -192,19 +192,30 @@ Contact: gimenoc@ifca.unican.es
 
 Usage examples:
 
-```
+* Example for covariance matrix computation:
+
+```python3
+python3 CMB_PAInT.py ./test/config_files/config_test.ini 0
 ```
 
-```
-```
+* Example for cholesky decomposition:
 
 ```
+python3 CMB_PAInT.py ./test/config_files/config_test.ini 1
 ```
+
+* Example for inpainting step:
+
+```
+python3 CMB_PAInT.py ./test/config_files/config_test.ini 2
+```
+
+
 
 
 # Ouput examples (Jupyter Notebook)
 
-[View the Jupyter Notebook]()
+[Exmaple of inpainted low resolution map]()
 
 # License
 
