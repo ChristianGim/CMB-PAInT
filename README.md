@@ -214,6 +214,7 @@ python3 CMB_PAInT.py ./test/config_files/config_test.ini 2
 
 Exceptionally, for very low resolution cases ($N_{\mathrm{side}}$ = 8, 16, 32), any program can import the **CMB_PAInT** class from CMB_PAInT.py.
 
+Once the package is imported, the code can follow the 3 steps: compute covariance matrix, do cholesky, and inpaint the input map (see example jupyter notebook).
 
 # Ouput examples (Jupyter Notebook)
 
@@ -225,7 +226,32 @@ This project is licensed under the MIT License. Feel free to use and modify the 
 
 # Citation
 
+If you use the CMB-PAInT code, please cite its release paper [**CMB-PAInT: An inpainting tool for the cosmic microwave background**](https://arxiv.org/abs/2405.06820) as
 
+```
+Gimeno-Amo, C., Martínez-González, E., & Barreiro, R.B., 2024, arXiv eprints, arXiv:2405.06820. https://arxiv.org/abs/2405.06820
+```
+
+The corresponding bibtex is:
+
+```
+@ARTICLE{2024arXiv240506820G,
+       author = {{Gimeno-Amo}, C. and {Mart{\'\i}nez-Gonz{\'a}lez}, E. and {Barreiro}, R.~B.},
+        title = "{CMB-PAInT: An inpainting tool for the cosmic microwave background}",
+      journal = {arXiv e-prints},
+     keywords = {Astrophysics - Cosmology and Nongalactic Astrophysics},
+         year = 2024,
+        month = may,
+          eid = {arXiv:2405.06820},
+        pages = {arXiv:2405.06820},
+          doi = {10.48550/arXiv.2405.06820},
+archivePrefix = {arXiv},
+       eprint = {2405.06820},
+ primaryClass = {astro-ph.CO},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2024arXiv240506820G},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
 
 # Contact
 
