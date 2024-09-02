@@ -16,7 +16,58 @@ If you have any comments or suggestions, please feel free to contact by email (g
 
 This code needs an ini file containing the following parameters:
 
+* cls: Array with the fiducial Cls of the CMB used for the covariance matrix computation. The shape of the array must be (N, $\ell_{\mathrm{max}}$+1), where N is the number of Cls and $\ell_{\mathrm{max}}$ is the maximum multipole. The Cls must be in the following order: TT, EE, BB (optionally TE, TB, EB). If pol = False, then just TT is needed. If pol = True, but tpol = False, then only EE and BB will be used. If tpol = True, TE is also needed.
+* $N_{side}$: Resolution.
+* $\ell_{\mathrm{max}}$: Maximum multipole.
+* pol: If True, the covariance matrix will be computed for Q and U (or T+QU if TPol is True). If False, only temperature will be considered.
+* tpol: If True, the covariance matrix will be computed for T+QU. If False, the covariance matrix will be computed for Q and U (or just T if Pol is False).
+* eb: If True, the covariance matrix will be computed asumming a non standard model where EB is different from zero. False means EB = 0.
+* tb: If True, the covariance matrix will be computed asumming a non standard model where TB is different from zero. False means TB = 0.
+* i_mask: Path to the intensity mask.
+* p_mask: Path to the polarization mask.
+* Ext_Cov: Path to an external covariance matrix which contains noise and systematic properties. It is added tothe signal covariance matrix. By default is None.
+* sh_covariance_path: Bash script to run the computation of the covariance matrix in a cluster. If None, the code will generate it taking as reference NERSC system.
+* sh_chol_path: Bash script to run the computation of the Cholesky decomposition of the covariance matrix in a cluster. If None, the code will generate it taking as reference NERSC system.
+* sh_inp_path: Bash script to run the inpainting in a cluster. If None, the code will generate it taking as reference NERSC system.
+* nj_cov: Number of jobs in which the computation of the covariance matrix will be distributed.
+* nj_inp: Number of jobs in which the inpainting procedure will be distributed.
+* local: If True the code will be launched for a local system (not distributed along different jobs). If False, a cluster will be use.
+* dp: If True, precision = DOUBLE. If False, precision = SINGLE.
+* noise_level: Regularization noise level.
+* chunks: Chunk size, number of elements per row (or column) to be included in the chunk. This is used by dask package to speed up the code. An optimal chunk size is needed,
+  not too big (big chunks), not too small (too many chunks). Take into account that the chunk size must be a divisor of the number of pixels.
+* inp_in_path: Path to the input maps.
+* inp_out_path: Path to the folder where inpainted maps will be saved.
+* out_matrix: Path to the folder where covariance matrix (and cholesky decomposition) will be stored.
+* name: Name of the input maps. If more than one, the code will concatenate with "_"+str(i)+".fits", where i runs from 0 to num_sims.
+* num_sims: If single = False, number of simulations to be inpainted. If single = True, number of inpainted realizations for a single sky.
+* single: If True, only one sky will be inpainted. If False, Num_Sims skies will be inpainted.
+* no_z: If True, the code assummes that z variables are precomputed. 
+* cons_uncons: If True, constrained and unconstrained maps are also provided.
+* fields: Number of fields of the input map(s). If TPol = False, it specify if input maps contains also T. If Fields = 3, then the code will read fields 1 and 2 (Q and U)
+  If Fields = 2, input map only contains polarization, so the code will read fields 0 and 1.
+* zbar_path: Path to the folder where zbar (normal random) variables are stored. This are the seeds of the inpainted maps. By default is None, and the code will generate and save them.
+  This is useful as it allows the use of precomputed or presaved seeds.
+* config_name: Name of the configuration file.
+* job_name: If the code generate by itself the bash script for NERSC system, this is the name of the sh file. 
+  
+The following parameters are just useful if you are running on NERSC and you are not providing a sh file. The code will generate by itself with the following specifications:
 
+* qos: QOS ("Quality of Service") parameter for the cluster. For instance, "overrun" is the free of charge option with very low priority. 
+* nodes_cov: Number of nodes per job for the covariance matrix computation.
+* nodes_inp: Number of nodes per job for the inpainting step.
+* env: Conda environment to be loaded.
+* ntasks_cov: Number of tasks per node for the covariance matrix computation. 
+* ntasks_inp: Number of tasks per node for the inpainting step. Be careful with the memory, each task will read large matrices. 
+* cpus_per_task_cov: Number of cpus per task to use in the cluster for the covariance matrix computation. Take into account the number of CPUs per node in your cluster.
+  cpus_per_task_cov times ntask_cov <= Total number of CPUs per node.
+* cpus_per_task_inp: Number of cpus per task to use in the cluster for the inpainting. Take into account the number of CPUs per node in your cluster.
+  cpus_per_task_inp times ntask_inp <= Total number of CPUs per node.
+* email: Email direction. NERSC will notify by email the status of the job (when it starts and finishs).
+* constraint: Constraint to be used. By default this will be "cpu".
+* time_limit_cov: Time limit per job for the covariance matrix computation.
+* time_limit_chol: Time limit per job for the cholesky decomposition.
+* time_limit_inp: Time limit per job for the inpainting step.
 
 This is an example:
 
@@ -43,9 +94,10 @@ nodes_inp = 5
 env = your_conda_environment
 ntasks_cov = 32
 ntasks_inp = 5
-cpus_per_task = 5gpfs/projects/astro/gimeno/Inpainting_Test/Test_ns_64/Cov_Mat/
+cpus_per_task_cov = 5
+cpus_per_task_inp = 20
 email = your_email
-constrain = constrain
+constraint = cpu
 nj_cov = 32
 nj_inp = 64
 local = False
@@ -68,6 +120,10 @@ zbar_path = None
 config_name = config_test.ini
 job_name = test_CMB_PAInT
 ```
+
+# Output
+
+
 
 # Installation and dependencies
 
@@ -112,7 +168,6 @@ The dependencies are:
 # Ouput examples (Jupyter Notebook)
 
 [View the Jupyter Notebook]()
-
 
 # License
 
