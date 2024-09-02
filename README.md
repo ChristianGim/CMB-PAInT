@@ -210,7 +210,9 @@ python3 CMB_PAInT.py ./test/config_files/config_test.ini 1
 python3 CMB_PAInT.py ./test/config_files/config_test.ini 2
 ```
 
+* As a python class (very low resolution scenarios).
 
+Exceptionally, for very low resolution cases ($N_{\mathrm{side}}$ = 8, 16, 32), any program can import the **CMB_PAInT** class from CMB_PAInT.py.
 
 
 # Ouput examples (Jupyter Notebook)
