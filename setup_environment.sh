@@ -11,5 +11,5 @@ else
     # Create conda environment and install dependencies
     conda create -n "$ENV_NAME" python=3.11 -y
     conda activate "$ENV_NAME"
-    pip install -r "$current_directory/requirements.txt"
+    pip install -r "./requirements.txt"
 fi
