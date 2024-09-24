@@ -19,7 +19,9 @@ setup(
           'healpy',
           'tqdm',
           'psutil',
-          'dask'
+          'dask',
+          'mpi4py',
+          'h5py'
       ],
 
 )

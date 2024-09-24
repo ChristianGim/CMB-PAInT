@@ -10,6 +10,7 @@ else
     echo "Creating conda environment '$ENV_NAME'..."
     # Create conda environment and install dependencies
     conda create -n "$ENV_NAME" python=3.11 -y
-    conda activate "$ENV_NAME"
-    pip install -r "./requirements.txt"
 fi
+
+source activate $ENV_NAME
+pip3 install -r "./requirements.txt"
