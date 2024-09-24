@@ -229,27 +229,24 @@ This project is licensed under the MIT License. Feel free to use and modify the 
 If you use the CMB-PAInT code, please cite its release paper [**CMB-PAInT: An inpainting tool for the cosmic microwave background**](https://arxiv.org/abs/2405.06820) as
 
 ```
-Gimeno-Amo, C., Martínez-González, E., & Barreiro, R.B., 2024, arXiv eprints, arXiv:2405.06820. https://arxiv.org/abs/2405.06820
+Gimeno-Amo, C., Martínez-González, E., & Barreiro, R.B., JCAP 09 (2024) 038 [arXiv:2405.06820]
 ```
 
 The corresponding bibtex is:
 
 ```
-@ARTICLE{2024arXiv240506820G,
-       author = {{Gimeno-Amo}, C. and {Mart{\'\i}nez-Gonz{\'a}lez}, E. and {Barreiro}, R.~B.},
-        title = "{CMB-PAInT: An inpainting tool for the cosmic microwave background}",
-      journal = {arXiv e-prints},
-     keywords = {Astrophysics - Cosmology and Nongalactic Astrophysics},
-         year = 2024,
-        month = may,
-          eid = {arXiv:2405.06820},
-        pages = {arXiv:2405.06820},
-          doi = {10.48550/arXiv.2405.06820},
-archivePrefix = {arXiv},
-       eprint = {2405.06820},
- primaryClass = {astro-ph.CO},
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2024arXiv240506820G},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+
+@article{Gimeno-Amo:2024hca,
+    author = "Gimeno-Amo, C. and Mart\'\i{}nez-Gonz\'alez, E. and Barreiro, R. B.",
+    title = "{CMB-PAInT: An inpainting tool for the cosmic microwave background}",
+    eprint = "2405.06820",
+    archivePrefix = "arXiv",
+    primaryClass = "astro-ph.CO",
+    doi = "10.1088/1475-7516/2024/09/038",
+    journal = "JCAP",
+    volume = "09",
+    pages = "038",
+    year = "2024"
 }
 ```
 
