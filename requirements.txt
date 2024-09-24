@@ -1,0 +1,7 @@
+numpy=1.21.5
+healpy=1.15.2
+tqdm
+dask
+psutil
+h5py=3.6.0
+mpi4py=3.1.3
