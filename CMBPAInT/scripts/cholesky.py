@@ -70,7 +70,7 @@ if __name__ == '__main__':
     import os
     import time
     import numpy as np 
-    from Tools import cholesky_tools
+    from CMBPAInT.Tools import cholesky_tools
     import dask.array as da
     import h5py
     import argparse
