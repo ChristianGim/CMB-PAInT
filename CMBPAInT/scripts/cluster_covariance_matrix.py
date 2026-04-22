@@ -288,7 +288,7 @@ if __name__ == '__main__':
     import configparser
     import healpy as hp
     from tqdm import tqdm
-    from Tools import covariance_tools
+    from CMBPAInT.Tools import covariance_tools
 
     def initial():
         """Function to read input arguments from command line and to offer help to user."""
