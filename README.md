@@ -139,7 +139,7 @@ You can also copy the repository, where a setup_environment.sh file will setup c
   1. Starting the terminal
   2. Clone the repository:
   ``` 
-     https://github.com/ChristianGim/CMB-PAInT
+     git clone https://github.com/ChristianGim/CMB-PAInT
   ```
   3. Run setup_environment.sh:
   ```  
